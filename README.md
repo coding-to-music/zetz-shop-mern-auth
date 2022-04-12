@@ -208,7 +208,9 @@ heroku create zetz-shop-mern-auth
 heroku config:set
 
 heroku config:set MONGODB_URI="mongodb+srv://<userid>:<password>@cluster0.zadqe.mongodb.net/zetz-shop-mern-auth?retryWrites=true&w=majority"
-heroku config:set SECRET_JWT="something-secret"
+heroku config:set JWT_SECRET="something-secret"
+heroku config:set PAYPAL_CLIENT_ID="another-something-secret"
+
 
 # probably not needed
 heroku config:set PUBLIC_URL="https://zetz-shop-mern-auth.herokuapp.com"

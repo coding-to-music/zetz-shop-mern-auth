@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "type": "module",
+  "homepage": "https://still-good-mern-graphql.herokuapp.com",
   "engines": {
-    "node": "14.15.3"
+    "node": "16.x"
   },
   "scripts": {
     "start": "node backend/server",
@@ -14,7 +15,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
+    "deploy": "git add . && git commit -m Heroku && git push && git push heroku && heroku logs --tail --remote heroku"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,6 @@
   "bugs": {
     "url": "https://github.com/obrm/zetz-shop/issues"
   },
-  "homepage": "https://github.com/obrm/zetz-shop#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
@@ -41,5 +42,10 @@
   "devDependencies": {
     "concurrently": "^5.3.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "backend/node_modules",
+    "frontend/node_modules"
+  ]
 }
